@@ -61,7 +61,6 @@ h2 { font-size: clamp(1.625rem, 4.2vw, 3rem); line-height: 1.12; letter-spacing:
 h3 { font-size: 1.125rem; line-height: 1.35; }
 .lead { font-size: 1.25rem; line-height: 1.55; color: var(--ink-soft); max-width: 34em; }
 .sec-head { display: grid; gap: 18px; align-content: start; }
-.todo { border-bottom: 2px dotted currentColor; font-weight: 600; white-space: nowrap; }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -179,11 +178,6 @@ form, .pick, .done { display: grid; gap: 18px; }
 .done { border: 2px solid var(--on-panel); border-radius: 28px; padding: 28px; }
 .pick-msg { color: var(--on-panel); min-height: 1.4em; font-size: .9375rem; }
 
-.contacts { display: grid; margin-top: 8px; }
-.contacts div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 12px; padding-block: 12px; border-top: 1px solid rgba(255, 255, 255, .35); }
-.contacts dt { font-size: .9375rem; color: var(--on-panel-soft); }
-.contacts dd { font-weight: 600; overflow-wrap: anywhere; }
-
 footer { background: var(--panel); color: var(--on-panel-soft); font-size: .9375rem; }
 footer .wrap { padding-block: 24px; border-top: 1px solid rgba(255, 255, 255, .35); }
 </style>
@@ -277,7 +271,7 @@ footer .wrap { padding-block: 24px; border-top: 1px solid rgba(255, 255, 255, .3
       <ol class="steps">
         <li><h3>Оставляете заявку</h3><p>Имя, телефон и что вам нужно. Это займёт минуту.</p></li>
         <li><h3>Выбираете, где с вами связаться</h3><p>Email, Telegram, ВК или МАХ. Как удобнее вам.</p></li>
-        <li><h3>Приходите на пробный урок</h3><p>Время согласуем в переписке. Срок ответа: <span class="todo">[уточнить]</span></p></li>
+        <li><h3>Приходите на пробный урок</h3><p>Время согласуем в переписке.</p></li>
         <li><h3>Решаете, продолжать ли</h3><p>Если понравилось, выбираете формат и начинаете заниматься.</p></li>
       </ol>
     </div>
@@ -289,10 +283,8 @@ footer .wrap { padding-block: 24px; border-top: 1px solid rgba(255, 255, 255, .3
         <h2>Что спрашивают перед записью</h2>
       </div>
       <div class="faq">
-        <details><summary>Сколько стоит пробный урок?</summary><p class="ans"><span class="todo">[уточнить]</span></p></details>
-        <details><summary>Как проходят занятия?</summary><p class="ans">Онлайн. Подробности о формате: <span class="todo">[уточнить]</span></p></details>
-        <details><summary>Нужно ли знать свой уровень?</summary><p class="ans"><span class="todo">[уточнить]</span></p></details>
-        <details><summary>С какого возраста берёте детей?</summary><p class="ans"><span class="todo">[уточнить]</span></p></details>
+        <details><summary>Сколько стоит пробный урок?</summary><p class="ans">Цену подскажем, когда вы оставите заявку.</p></details>
+        <details><summary>Как проходят занятия?</summary><p class="ans">Онлайн, из дома. Нужны только интернет и устройство.</p></details>
         <details><summary>Как отправить заявку?</summary><p class="ans">Заполните форму ниже и выберите, куда отправить: Email, Telegram, ВК или МАХ.</p></details>
       </div>
     </div>
@@ -303,14 +295,6 @@ footer .wrap { padding-block: 24px; border-top: 1px solid rgba(255, 255, 255, .3
       <div class="side">
         <h2>Запишитесь на пробный урок</h2>
         <p class="lead">Заполните три поля, потом выберите, куда отправить заявку.</p>
-        <dl class="contacts">
-          <div><dt>Телефон</dt><dd><span class="todo">[уточнить]</span></dd></div>
-          <div><dt>Email</dt><dd><span class="todo">[уточнить]</span></dd></div>
-          <div><dt>Telegram</dt><dd><span class="todo">[уточнить]</span></dd></div>
-          <div><dt>ВК</dt><dd><span class="todo">[уточнить]</span></dd></div>
-          <div><dt>МАХ</dt><dd><span class="todo">[уточнить]</span></dd></div>
-          <div><dt>Часы работы</dt><dd><span class="todo">[уточнить]</span></dd></div>
-        </dl>
       </div>
 
       <div>
