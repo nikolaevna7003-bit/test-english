@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Школа Speak Easy</title>
 <meta name="description" content="Онлайн-курсы английского для взрослых и детей. Сначала пробный урок, потом решение.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@400;600;700&display=swap" rel="stylesheet">
@@ -301,17 +303,17 @@ footer .wrap { padding-block: 24px; border-top: 1px solid rgba(255, 255, 255, .3
         <form id="signup-form" novalidate>
           <div class="field">
             <label for="f-name">Имя</label>
-            <input id="f-name" type="text" autocomplete="name" placeholder="Как к вам обращаться" aria-describedby="e-name">
+            <input id="f-name" type="text" autocomplete="name" maxlength="80" placeholder="Как к вам обращаться" aria-describedby="e-name">
             <span class="err" id="e-name" role="alert"></span>
           </div>
           <div class="field">
             <label for="f-phone">Телефон</label>
-            <input id="f-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 900 000-00-00" aria-describedby="e-phone">
+            <input id="f-phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" placeholder="+7 900 000-00-00" aria-describedby="e-phone">
             <span class="err" id="e-phone" role="alert"></span>
           </div>
           <div class="field">
             <label for="f-need">Что нужно</label>
-            <textarea id="f-need" placeholder="Например: английский для себя или для ребёнка, для работы, для поездок" aria-describedby="e-need"></textarea>
+            <textarea id="f-need" maxlength="600" placeholder="Например: английский для себя или для ребёнка, для работы, для поездок" aria-describedby="e-need"></textarea>
             <span class="err" id="e-need" role="alert"></span>
           </div>
           <button class="btn" type="submit">Записаться на пробный урок</button>
@@ -429,11 +431,15 @@ footer .wrap { padding-block: 24px; border-top: 1px solid rgba(255, 255, 255, .3
         window.location.href = 'mailto:' + addr + '?subject=' + encodeURIComponent('Заявка на пробный урок') + '&body=' + encodeURIComponent(t);
         finish(ch, 'Мы открыли письмо с вашей заявкой. Нажмите «Отправить» в почтовой программе.');
       } else if (ch === 'telegram') {
-        window.open('https://t.me/' + addr + '?text=' + encodeURIComponent(t), '_blank');
+        window.open('https://t.me/' + encodeURIComponent(addr) + '?text=' + encodeURIComponent(t), '_blank', 'noopener,noreferrer');
         finish(ch, 'Мы открыли Telegram с готовым текстом заявки. Нажмите «Отправить» в чате.');
       } else {
+        if (!/^https:\/\//i.test(addr)) {
+          msg.textContent = 'Адрес для «' + NAMES[ch] + '» указан неверно. Он должен начинаться с https://';
+          return;
+        }
         copy(t).then(function (ok) {
-          window.open(addr, '_blank');
+          window.open(addr, '_blank', 'noopener,noreferrer');
           finish(ch, ok
             ? 'Текст заявки скопирован. Вставьте его в сообщение в ' + NAMES[ch] + ' и отправьте.'
             : 'Мы открыли ' + NAMES[ch] + '. Напишите нам имя, телефон и что вам нужно.');
